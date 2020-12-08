@@ -1,4 +1,5 @@
 # twotter
+This is a project built for practice and learning VueJS.
 
 ## Project setup
 ```
