@@ -14,20 +14,24 @@
         <button @click="followUser()">Follow</button>
     </div>
 
-    <div class="twoot">
+    <div class="twoots">
         <h3 class="twootes-header">
             Recent Twoots
         </h3>
 
         <div class="twoot" v-for="twoot in twoots" v-bind:key="twoot.id">
-            <h4>{{twoot.content}}</h4>
+            <Twoot v-bind:twoot="twoot" v-bind:content="twoot.content" v-bind:username="user.username"></Twoot>            
         </div>
     </div>
 </template>
 
 <script>
+
+import Twoot from './Twoot'
+
 export default {
         name:"UserProfile",
+        components:{Twoot},
         data() {
             return {
                 user:{
@@ -70,7 +74,8 @@ export default {
                     console.log(`${this.user.username} has been followed`);
                 }
             }
-        }
+        },
+        
 
     }
 
@@ -80,12 +85,29 @@ export default {
 .user{
     background-color: white;
     padding: 20px;
-        width: 40%;
+    width: 20%;
+    height: 400px;
+    border-radius: 7px;
 }
-    .admin-badge{
-        background-color: rebeccapurple;
-        color: white;
-        padding: 10px;
-        
-    }
+.twoots{
+    width: 70%;
+    padding: 20px;
+}
+.twoot{
+    padding: 10px;
+    border-radius: 7px;
+    background-color: white;
+    margin: 10px;
+    transition: all 1.2s;
+}
+.twoot:hover{
+    transform: scale(1.1,1.1);
+    cursor: pointer;
+}
+.admin-badge{
+    background-color: rebeccapurple;
+    color: white;
+    padding: 10px;
+    
+}
 </style>
