@@ -13,6 +13,16 @@
         <br>
         <button @click="followUser()">Follow</button>
     </div>
+
+    <div class="twoot">
+        <h3 class="twootes-header">
+            Recent Twoots
+        </h3>
+
+        <div class="twoot" v-for="twoot in twoots" v-bind:key="twoot.id">
+            <h4>{{twoot.content}}</h4>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -27,7 +37,18 @@ export default {
                     email:"jodestrevin@gmail.com",
                     isAdmin:false,
                     followers:0
-                }
+                },
+                twoots:[
+                    {id:1,
+                    content:"Twotter is cool",
+                    },
+                     {id:2,
+                    content:"I am coding Vue",
+                    },
+                     {id:1,
+                    content:"This is amazing",
+                    },
+                ]
             }
         },
         computed:{
