@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-on:click="favoriteTwoot(twootId)">
         <h4>@{{username}}</h4>
         <p>{{twoot.content}}</p>
     </div>
@@ -18,6 +18,11 @@ export default {
             required:true
         }
     },
+    methods:{
+        favoriteTwoot(id){
+            this.$emit('favorite',id);
+        }
+    }
 
 }
 </script>

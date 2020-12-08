@@ -20,7 +20,11 @@
         </h3>
 
         <div class="twoot" v-for="twoot in twoots" v-bind:key="twoot.id">
-            <Twoot v-bind:twoot="twoot" v-bind:content="twoot.content" v-bind:username="user.username"></Twoot>            
+            <Twoot  v-bind:twoot="twoot" 
+                    v-bind:content="twoot.content" 
+                    v-bind:username="user.username"
+                    v-on:favorite="toggleFavorite(twoot.id)">
+            </Twoot>            
         </div>
     </div>
 </template>
@@ -49,7 +53,7 @@ export default {
                      {id:2,
                     content:"I am coding Vue",
                     },
-                     {id:1,
+                     {id:3,
                     content:"This is amazing",
                     },
                 ]
@@ -63,6 +67,9 @@ export default {
         methods:{
             followUser(){
                 this.user.followers++;
+            },
+            toggleFavorite(id){
+                console.log(`Favorited twoot with ID ${id}`);
             }
         },
         mounted(){
